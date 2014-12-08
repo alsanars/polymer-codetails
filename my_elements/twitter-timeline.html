@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="twitter-service.html">
+<link rel="import" href="twitter-card.html">
+
+<polymer-element name="twitter-timeline" noscript>
+  <template>
+
+    <style>
+      twitter-timeline {
+        display: block;
+        width: 100%;
+      }
+      twitter-card {
+        margin-bottom: 30px;
+      }
+    </style>
+
+    <!-- add markup here -->
+    <twitter-service id="service" tweets="{{tweets}}"></twitter-service>
+
+    <div layout vertical center>
+      <template repeat="{{tweet in tweets}}">
+        <twitter-card>
+          <img src="{{tweet.user.profile_image_url}}" width="70" height="70">
+          <h2>{{tweet.user.name}}</h2>
+          <p>{{tweet.text}}</p>
+        </twitter-card>
+      </template>
+    </div>
+
+  </template>
+</polymer-element>
